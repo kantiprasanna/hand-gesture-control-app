@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands Free Computing</title>
+    <link rel="stylesheet" href="gui.styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <section class="glass">
+        <div class="dashboard">
+          <div class="user">
+            <div class="profile-picture-container">
+              <img
+                class="profile-pic"
+                id="profile-pic"
+                src="./images/logo4.svg"
+                alt=""
+              />
+            </div>
+            <p>You are currently:</p>
+            <span title="Connection Status"
+              ><h3 id="connection-status">🔴 Disconnected</h3></span
+            >
+          </div>
+          <div class="links">
+            <div class="link">
+              <img src="./images/user2.svg" alt="" />
+              <h2>PERSONAL</h2>
+            </div>
+            <div class="link">
+              <img src="./images/user2.svg" alt="" />
+              <h2>OFFICE</h2>
+            </div>
+            <div class="link">
+              <img src="./images/user2.svg" alt="" />
+              <h2>OTHER</h2>
+            </div>
+          </div>
+          <div class="pro-container">
+            <div class="pro" onclick="downloadFile()">
+              <img src="./images/download.svg" />
+              <h2>Export</h2>
+            </div>
+            <label class="pro">
+              <img src="./images/upload.svg" />
+              <h2>Import</h2>
+              <input
+                type="file"
+                id="file-upload"
+                accept="application/JSON"
+                name="myfile"
+              />
+            </label>
+          </div>
+        </div>
+        <div class="gestures">
+          <div class="status">
+            <h1>👋 Customize Gestures</h1>
+            <div class="input-data">
+              <!-- <input
+                id="gesture-set-id"
+                type="text"
+                placeholder="Enter ID"
+                onchange="updateText(this.value)"
+              /> -->
+              <div class="form__div">
+                <input
+                  id="gesture-set-id"
+                  type="text"
+                  class="form__input"
+                  placeholder=" "
+                  onchange="updateText(this.value)"
+                />
+                <label for="" class="form__label">Enter ID:</label>
+              </div>
+              <div class="pro2" onclick="read_from_firebase()">
+                <img src="./images/cloud-download.svg" />
+                <h2><span title="Get Gesture Set from cloud">Get</span></h2>
+              </div>
+              <div class="pro2 pro-upload" onclick="add_to_firebase()">
+                <img src="./images/cloud-upload.svg" />
+                <h2><span title="Update Gesture to Cloud">Update</span></h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="test-cards">
+            <!-- **************************************************************** -->
+            <!-- **************************************************************** -->
+            <!-- **************************************************************** -->
+
+            <ul class="cards">
+              <!-- LEFT HAND -->
+              
+                <!-- Gesture 0: left-index -->
+                <li>
+                  <a href="#" class="card">
+                    <!-- image size: 520 * 520 -->
+                    <img
+                      src="./images/gesture-inputs/0.png"
+                      class="card__image"
+                      alt=""
+                    />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg
+                          class="card__arc"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path />
+                        </svg>
+                        <div class="card__header-text">
+                          <h3 class="card__title">Index (Left)</h3>
+                          <span id="stat-0" class="card__status">updating</span>
+                        </div>
+                      </div>
+                      <p class="card__description">
+                        <select
+                          id="element0"
+                          class="form-select"
+                          aria-label="Default select example"
+                          onchange="updateCardStatus('stat-0', 'element0')"
+                        >
+                          <option value="no_operation">No Operation</option>
+                          <option selected value="page_up">Page Up</option>
+                          <option value="page_down">Page Down</option>
+                          <option value="left_click">Left Click</option>
+                          <option value="right_click">Right Click</option>
+                          <option value="move_left">Move Left</option>
+                          <option value="move_right">Move Right</option>
+                          <option value="move_up">Move Up</option>
+                          <option value="move_down">Move Down</option>
+                          <option value="open_google">Open Google</option>
+                          <option value="take_screenshot">
+                            Take Screenshot
+                          </option>
+                          <option value="arrow_left">Arrow Left</option>
+                          <option value="arrow_right">Arrow Right</option>
+                          <option value="copy">Copy</option>
+                          <option value="paste">Paste</option>
+                          <option value="zoom_in">Zoom In</option>
+                          <option value="zoom_out">Zoom Out</option>
+                          <option value="next_tab">Next Tab</option>
+                          <option value="prev_tab">Prev Tab</option>
+                          <option value="new_tab">New Tab</option>
+                          <option value="new_incognito_tab">
+                            New Incognito Tab
+                          </option>
+                          <option value="new_window">New Window</option>
+                          <option value="close_tab">Close Tab</option>
+                          <option value="close_all_tab">Close All Tab</option>
+                          <option value="save">Save</option>
+                          <option value="print_page">Print Page</option>
+                          <option value="history">History</option>
+                          <option value="downloads">Downloads</option>
+                          <option value="reload_tab">Reload Tab</option>
+                        </select>
+                      </p>
+                    </div>
+                  </a>
+                </li>
+                <!-- Gesture 1: left-index -->
+                <li>
+                  <a href="#" class="card">
+                    <!-- image size: 520 * 520 -->
+                    <img
+                      src="./images/gesture-inputs/1.png"
+                      class="card__image"
+                      alt=""
+                    />
+                    <div class="card__overlay">
+                      <div class="card__header">
+                        <svg
+                          class="card__arc"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path />
+                        </svg>
+                        <div class="card__header-text">
+                          <h3 class="card__title">Middle (Left)</h3>
+                          <span id="stat-1" class="card__status">updating</span>
+                        </div>
+                      </div>
+                      <p class="card__description">
+                        <select
+                          id="element1"
+                          class="form-select"
+                          onchange="updateCardStatus('stat-1', 'element1')"
+                          aria-label="Default select example"
+                        >
+                          <option value="no_operation">No Operation</option>
+                          <option selected value="page_up">Page Up</option>
+                          <option value="page_down">Page Down</option>
+                          <option value="left_click">Left Click</option>
+                          <option value="right_click">Right Click</option>
+                          <option value="move_left">Move Left</option>
+                          <option value="move_right">Move Right</option>
+                          <option value="move_up">Move Up</option>
+                          <option value="move_down">Move Down</option>
+                          <option value="open_google">Open Google</option>
+                          <option value="take_screenshot">
+                            Take Screenshot
+                          </option>
+                          <option value="arrow_left">Arrow Left</option>
+                          <option value="arrow_right">Arrow Right</option>
+                          <option value="copy">Copy</option>
+                          <option value="paste">Paste</option>
+                          <option value="zoom_in">Zoom In</option>
+                          <option value="zoom_out">Zoom Out</option>
+                          <option value="next_tab">Next Tab</option>
+                          <option value="prev_tab">Prev Tab</option>
+                          <option value="new_tab">New Tab</option>
+                          <option value="new_incognito_tab">
+                            New Incognito Tab
+                          </option>
+                          <option value="new_window">New Window</option>
+                          <option value="close_tab">Close Tab</option>
+                          <option value="close_all_tab">Close All Tab</option>
+                          <option value="save">Save</option>
+                          <option value="print_page">Print Page</option>
+                          <option value="history">History</option>
+                          <option value="downloads">Downloads</option>
+                          <option value="reload_tab">Reload Tab</option>
+                        </select>
+                      </p>
+                    </div>
+                  </a>
+                </li>
+<!-- Gesture 2: Ring-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/2.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring (Left)</h3>
+          <span id="stat-2" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element2" class="form-select" onchange="updateCardStatus('stat-2', 'element2')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+<!-- Gesture 3: Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/3.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Pinky (Left)</h3>
+          <span id="stat-3" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element3" class="form-select" onchange="updateCardStatus('stat-3', 'element3')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 4: Middle, Ring, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/4.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Ring, Pinky (Left)</h3>
+          <span id="stat-4" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element4" class="form-select" onchange="updateCardStatus('stat-4', 'element4')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 5: Index, Ring, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/5.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Ring, Pinky (Left)</h3>
+          <span id="stat-5" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element5" class="form-select" onchange="updateCardStatus('stat-5', 'element5')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 6: Index, Middle, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/6.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Middle, Pinky (Left)</h3>
+          <span id="stat-6" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element6" class="form-select" onchange="updateCardStatus('stat-6', 'element6')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 7: Index, Middle, Ring-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/7.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Middle, Ring (Left)</h3>
+          <span id="stat-7" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element7" class="form-select" onchange="updateCardStatus('stat-7', 'element7')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 8: Ring, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/8.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring, Pinky (Left)</h3>
+          <span id="stat-8" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element8" class="form-select" onchange="updateCardStatus('stat-8', 'element8')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 9: Middle, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/9.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Pinky (Left)</h3>
+          <span id="stat-9" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element9" class="form-select" onchange="updateCardStatus('stat-9', 'element9')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 10: Index, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/10.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Pinky (Left)</h3>
+          <span id="stat-10" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element10" class="form-select" onchange="updateCardStatus('stat-10', 'element10')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 11: Middle, Ring-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/11.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Ring (Left)</h3>
+          <span id="stat-11" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element11" class="form-select" onchange="updateCardStatus('stat-11', 'element11')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 12: Middle, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/12.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Pinky (Left)</h3>
+          <span id="stat-12" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element12" class="form-select" onchange="updateCardStatus('stat-12', 'element12')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 13: Ring, Pinky-(Left) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/13.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring, Pinky (Left)</h3>
+          <span id="stat-13" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element13" class="form-select" onchange="updateCardStatus('stat-13', 'element13')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+<!-- LEFT ENDED -->
+<!-- RIGHT HAND -->
+<!-- Gesture 14: Index-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/14.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index (Right)</h3>
+          <span id="stat-14" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element14" class="form-select" onchange="updateCardStatus('stat-14', 'element14')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 15: Middle-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/15.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle (Right)</h3>
+          <span id="stat-15" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element15" class="form-select" onchange="updateCardStatus('stat-15', 'element15')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 16: Ring-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/16.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring (Right)</h3>
+          <span id="stat-16" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element16" class="form-select" onchange="updateCardStatus('stat-16', 'element16')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 17: Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/17.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Pinky (Right)</h3>
+          <span id="stat-17" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element17" class="form-select" onchange="updateCardStatus('stat-17', 'element17')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 18: Middle, Ring, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/18.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Ring, Pinky (Right)</h3>
+          <span id="stat-18" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element18" class="form-select" onchange="updateCardStatus('stat-18', 'element18')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 19: Index, Ring, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/19.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Ring, Pinky (Right)</h3>
+          <span id="stat-19" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element19" class="form-select" onchange="updateCardStatus('stat-19', 'element19')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 20: Index, Middle, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/20.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Middle, Pinky (Right)</h3>
+          <span id="stat-20" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element20" class="form-select" onchange="updateCardStatus('stat-20', 'element20')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 21: Index, Middle, Ring-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/21.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Middle, Ring (Right)</h3>
+          <span id="stat-21" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element21" class="form-select" onchange="updateCardStatus('stat-21', 'element21')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 22: Ring, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/22.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring, Pinky (Right)</h3>
+          <span id="stat-22" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element22" class="form-select" onchange="updateCardStatus('stat-22', 'element22')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 23: Middle, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/23.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Pinky (Right)</h3>
+          <span id="stat-23" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element23" class="form-select" onchange="updateCardStatus('stat-23', 'element23')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Ta
+            b</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 24: Index, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/24.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Index, Pinky (Right)</h3>
+          <span id="stat-24" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element24" class="form-select" onchange="updateCardStatus('stat-24', 'element24')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 25: Middle, Ring-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/25.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Ring (Right)</h3>
+          <span id="stat-25" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element25" class="form-select" onchange="updateCardStatus('stat-25', 'element25')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 26: Middle, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/26.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Middle, Pinky (Right)</h3>
+          <span id="stat-26" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element26" class="form-select" onchange="updateCardStatus('stat-26', 'element26')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+
+<!-- Gesture 27: Ring, Pinky-(Right) -->
+<li>
+  <a href="#" class="card">
+    <!-- image size: 520 * 520 -->
+    <img src="./images/gesture-inputs/27.png" class="card__image" alt="" />
+    <div class="card__overlay">
+      <div class="card__header">
+        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+          <path />
+        </svg>
+        <div class="card__header-text">
+          <h3 class="card__title">Ring, Pinky (Right)</h3>
+          <span id="stat-27" class="card__status">updating</span>
+        </div>
+      </div>
+      <p class="card__description">
+        <select id="element27" class="form-select" onchange="updateCardStatus('stat-27', 'element27')"
+          aria-label="Default select example">
+          <option selected value="no_operation">No Operation</option>
+          <option value="page_up">Page Up</option>
+          <option value="page_down">Page Down</option>
+          <option value="left_click">Left Click</option>
+          <option value="right_click">Right Click</option>
+          <option value="move_left">Move Left</option>
+          <option value="move_right">Move Right</option>
+          <option value="move_up">Move Up</option>
+          <option value="move_down">Move Down</option>
+          <option value="open_google">Open Google</option>
+          <option value="take_screenshot">
+            Take Screenshot
+          </option>
+          <option value="arrow_left">Arrow Left</option>
+          <option value="arrow_right">Arrow Right</option>
+          <option value="copy">Copy</option>
+          <option value="paste">Paste</option>
+          <option value="zoom_in">Zoom In</option>
+          <option value="zoom_out">Zoom Out</option>
+          <option value="next_tab">Next Tab</option>
+          <option value="prev_tab">Prev Tab</option>
+          <option value="new_tab">New Tab</option>
+          <option value="new_incognito_tab">
+            New Incognito Tab
+          </option>
+          <option value="new_window">New Window</option>
+          <option value="close_tab">Close Tab</option>
+          <option value="close_all_tab">Close All Tab</option>
+          <option value="save">Save</option>
+          <option value="print_page">Print Page</option>
+          <option value="history">History</option>
+          <option value="downloads">Downloads</option>
+          <option value="reload_tab">Reload Tab</option>
+        </select>
+      </p>
+    </div>
+  </a>
+</li>
+              <!-- Right Ended -->
+              
+            </ul>
+            <!-- **************************************************************** -->
+            <!-- **************************************************************** -->
+
+            <!-- **************************************************************** -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div id="submit-button" onclick="get_gesture_input()" class="run-app">
+      <img class="start-icon" src="./images/start2.svg" alt="">
+    </div>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="linkers/gesture-linker.js"></script>
+  </body>
+</html>
